@@ -8,6 +8,9 @@ mv ./kind /usr/bin
 # Setup kubernetes cluster
 kind create cluster
 
+# Change kubeconfig permissions
+chmod 644 ~/.kube/config
+
 # Install kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x ./kubectl
