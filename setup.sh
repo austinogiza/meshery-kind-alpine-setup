@@ -14,4 +14,4 @@ chmod +x ./kubectl
 mv ./kubectl /usr/bin
 
 # Spin up the containers
-docker-compose -d up
+docker-compose up -d
