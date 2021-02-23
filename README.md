@@ -18,4 +18,5 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-5. That's it! If you get an error in the browser "Aw Snap!" then please click on "reload", the rest of the process should be smooth
+5. If you get an error in the browser "Aw Snap!" then please click on "reload", the rest of the process should be smooth.
+6. That's it! Now Click on "Open Port" and type in port `9081` to access meshery dashboard
