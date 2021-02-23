@@ -1,0 +1,54 @@
+version: '3'
+services:
+  meshery:
+    image: layer5/meshery:stable-latest
+    network_mode: host
+    environment:
+      - "PROVIDER_BASE_URLS=https://meshery.layer5.io"
+      - "SAAS_BASE_URL=https://meshery.layer5.io"
+      - "ADAPTER_URLS=localhost:10000 localhost:10001 localhost:10002 localhost:10003 localhost:10004 localhost:10007 localhost:10008 localhost:10009"
+      - "EVENT=mesheryLocal"
+      - "PORT=9081"
+    volumes:
+      - $HOME/.kube:/home/appuser/.kube:ro
+      
+  meshery-istio:
+    image: layer5/meshery-istio:stable-latest
+    network_mode: host
+    environment:
+      - "SERVICE_ADDR=localhost"
+      - "MESHERY_SERVER=localhost:9081"
+    depends_on:
+      - meshery
+      
+  meshery-linkerd:
+    image: layer5/meshery-linkerd:stable-latest
+    network_mode: host
+      
+  meshery-consul:
+    image: layer5/meshery-consul:stable-latest
+    network_mode: host
+      
+  meshery-octarine:
+    image: layer5/meshery-octarine:stable-latest
+    network_mode: host
+      
+  meshery-nsm:
+    image: layer5/meshery-nsm:stable-latest
+    network_mode: host
+      
+  meshery-traefik-mesh:
+    image: layer5/meshery-traefik-mesh:stable-latest
+    network_mode: host
+      
+  meshery-kuma:
+    image: layer5/meshery-kuma:stable-latest
+    network_mode: host
+      
+  meshery-cpx:
+    image: layer5/meshery-cpx:stable-latest
+    network_mode: host
+      
+  meshery-osm:
+    image: layer5/meshery-osm:stable-latest
+    network_mode: host
